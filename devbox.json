@@ -1,0 +1,20 @@
+{
+  "packages": [
+    "nodejs-18_x",
+    "nodePackages.pnpm",
+    "postgresql",
+    "glibcLocales",
+    "github:NixOS/nixpkgs/a5c5ba536f7dfcef41ee9d986f31e8e7c50312f1#prisma-engines"
+  ],
+  "shell": {
+    "init_hook": [
+      "sh ./.config/devbox/init-db.sh",
+      "npm install",
+      "sh ./scripts/prepare.sh",
+      "npm run dev"
+    ]
+  },
+  "nixpkgs": {
+    "commit": "f80ac848e3d6f0c12c52758c0f25c10c97ca3b62"
+  }
+}
