@@ -1,2 +1,2 @@
-npx prisma migrate dev
-npx prisma migrate reset --force
+prisma migrate dev
+prisma migrate reset --force

@@ -4,11 +4,14 @@
     "nodePackages.pnpm",
     "postgresql",
     "glibcLocales",
-    "github:NixOS/nixpkgs/a5c5ba536f7dfcef41ee9d986f31e8e7c50312f1#prisma-engines"
+    "github:NixOS/nixpkgs/a5c5ba536f7dfcef41ee9d986f31e8e7c50312f1#prisma-engines",
+    "openssl.dev",
+    "github:NixOS/nixpkgs/9a03bb2c0760db455f4d672c206e69a7201b8c99#nodePackages.prisma"
   ],
   "shell": {
     "init_hook": [
       "echo 'Running init hook...'",
+      "devbox services up --background",
       "sh ./.config/devbox/init-db.sh",
       "npm install",
       "sh ./scripts/prepare.sh",
