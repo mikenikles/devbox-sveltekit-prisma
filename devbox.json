@@ -11,7 +11,7 @@
   "shell": {
     "init_hook": [
       "echo 'Running init hook...'",
-      "sh ./.config/devbox/init-db.sh",
+      "sh ./.config/devbox/postgresql/init.sh",
       "npm install",
       "sh ./scripts/prepare.sh",
       "npm run dev"

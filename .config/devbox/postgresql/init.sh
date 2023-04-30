@@ -9,7 +9,7 @@ start_db() {
 if [ ! -f "$PGDATA/PG_VERSION" ]; then
     initdb -D "$PGDATA" -U postgres
     start_db
-    psql -U postgres -f ./.config/devbox/init-db.sql
+    psql -U postgres -f ./.config/devbox/postgresql/init.sql
 else
     start_db
 fi
