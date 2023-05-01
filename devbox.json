@@ -1,12 +1,11 @@
 {
   "packages": [
+    "github:NixOS/nixpkgs/9a03bb2c0760db455f4d672c206e69a7201b8c99#nodePackages.prisma",
+    "github:NixOS/nixpkgs/a5c5ba536f7dfcef41ee9d986f31e8e7c50312f1#prisma-engines",
+    "glibcLocales",
     "nodejs-18_x",
     "nodePackages.pnpm",
-    "postgresql",
-    "glibcLocales",
-    "github:NixOS/nixpkgs/a5c5ba536f7dfcef41ee9d986f31e8e7c50312f1#prisma-engines",
-    "openssl.dev",
-    "github:NixOS/nixpkgs/9a03bb2c0760db455f4d672c206e69a7201b8c99#nodePackages.prisma"
+    "postgresql"
   ],
   "shell": {
     "init_hook": [

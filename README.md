@@ -1,38 +1,44 @@
-# create-svelte
+# devbox-sveltekit-prisma
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+An example of how to configure [Devbox](https://github.com/jetpack-io/devbox) for a [SvelteKit](https://kit.svelte.dev/) full-stack web application that uses [Prisma](https://www.prisma.io/).
 
-## Creating a project
+## What is this?
 
-If you're seeing this, you've probably already done this step. Congrats!
+Devbox is next-generation development environment automation. Configure your project once and anyone can contribute effortlessly by running `devbox shell`, `devbox cloud shell` (to run processes in the cloud instead of locally) or develop in their browser via [devbox.sh](https://devbox.sh).
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+> You may have heard of projects like **GitHub Codespaces**. Devbox falls in the same category, but solves the problems cloud-only solutions such as Codespaces have. To read more, please see my blog post titled ["Dev environments in the cloud are a half-baked solution"](https://www.mikenikles.com/blog/dev-environments-in-the-cloud-are-a-half-baked-solution).
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+## Getting Started
 
-## Developing
+Click the following button to start this repository in your browser:
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+[![Open in Devbox.sh](https://jetpack.io/img/devbox/open-in-devbox.svg)](https://devbox.sh/github.com/mikenikles/devbox-sveltekit-prisma)
 
-```bash
-npm run dev
+Alternatively, you can clone this repository and start a Devbox shell locally or in the cloud:
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+1. `curl -fsSL https://get.jetpack.io/devbox | bash`
+1. `git clone git@github.com:mikenikles/devbox-sveltekit-prisma.git`
+1. `devbox shell` or `devbox cloud shell`
+1. Visit http://localhost:5173
 
-## Building
+## How is it configured?
 
-To create a production version of your app:
+### `devbox.json`
 
-```bash
-npm run build
-```
+This is the main Devbox configuration file. You can find [the reference documentation](https://www.jetpack.io/devbox/docs/configuration/) online.
 
-You can preview the production build with `npm run preview`.
+*`packages`*
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+A list of packages required by your project. In this repository, we configure Node.js 18.x, PostgreSQL, `pnpm`, and Prisma.
+
+*`shell.init_hook`*
+
+This array contains a list of commands Devbox runs when someone starts a Devbox shell with `devbox [cloud] shell` or opens the project in a browser via [devbox.sh](https://devbox.sh).
+
+*`./.config/devbox/postgresql/init.sh`*
+
+This shell script initializes, starts, and sets up a PostgreSQL database if none exists. If a database already exists, it simply starts the process.
+
+## Feedback
+
+If you have questions or feedback, please reach out via Twitter [@mikenikles](https://twitter.com/mikenikles).
